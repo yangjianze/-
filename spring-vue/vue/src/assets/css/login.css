@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow: hidden;
+}
+#app{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+#bg{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+     background-color: rgba(43, 51, 62, 1.0);
+     /*background-color: rgba(244, 244, 244, 1.0);*/
+    /*background-color: snow;*/
+    /*background-image: url('../img/bgimg2.png');*/
+    /*background-image: url('../img/black.jpg');*/
+    background-position: 50%;
+    background-size: cover;
+    z-index: 1;
+}
+#box{
+    border-radius: 10px;
+    /* padding: 20px; */
+    /* width: 350px; */
+    position: absolute;
+    background-color: rgba(234, 234, 236, 1.0);
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    text-decoration: none;
+    animation: tops .8s linear 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04)
+}
+
+@keyframes tops{
+    from{
+        opacity: 0;
+        top: 0;
+    }
+    to{
+        opacity: 1;
+        top: 25%;
+    }
+}
+fieldset{
+    height: 250px;
+    /* position: absolute;
+    z-index: -1; */
+}
+
+#box:hover fieldset{
+    animation: tops2 0.7s linear 1;
+    height: 410px;
+}
+@keyframes tops2{
+    from{
+        height: 250px;
+    }
+    to{
+        height: 410px;
+    }
+}
+#box img{
+    bottom: -2px;
+    position: absolute;
+    z-index: 3;
+}

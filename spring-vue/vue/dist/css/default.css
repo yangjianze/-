@@ -1,0 +1,358 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	height: 100vh;
+	overflow: hidden;
+}
+.alll{
+	position: absolute;
+	background-color:  rgb(18, 20, 35);
+	opacity: 1;
+	height: 100%;
+	width: 100%;
+	z-index: 30;
+	animation: bg 1s linear 1;
+}
+@keyframes bg{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+/* 背景 */
+.container{
+	background-color: rgb(18, 20, 35);
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+/* 火箭 */
+.container .rocket{
+	position: absolute;
+	cursor: pointer;
+	left: 50%;
+	bottom: 300px;
+	z-index: 10;
+	/* animation: shake 0.5s linear infinite; */
+}
+.b{
+	animation: shake 0.5s linear infinite;
+}
+.a{
+	animation: shaking 3s linear 1;
+}
+@keyframes shaking{
+	0%{
+		transform: translateY(0px);	
+	}
+	30%{
+		transform: translateY(200px);
+		opacity: 1;
+	}
+	45%{
+		transform: translateY(-900px);
+		opacity: 1;
+	}
+	46%{
+		opacity: 0;
+	}
+	90%{
+		opacity: 0;
+		transform: translateY(0px);
+	}
+	93%{
+		opacity: 0.2;
+	}
+	96%{
+		opacity: 0.6;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.container .rocket img{
+	transform: rotate(-45deg);
+}
+@keyframes shake{
+	0%,100%{
+		transform: translateY(-3px);	
+	}
+	50%{
+		transform: translateY(3px);
+		
+	}
+}
+
+.container .rocket:hover{
+	animation: shakehover 0.4s linear infinite;
+	bottom:350px ;
+	/* animation: shaking 3s linear 1; */
+}
+
+@keyframes shakehover{
+	0%,100%{
+		transform: translateY(-5px);
+		
+	}
+	50%{
+		transform: translateY(5px);
+		
+	}
+}
+.container .rocket:hover .fire{
+	background:linear-gradient(rgb(247, 107, 7),transparent);
+	/* animation: firehover 1s linear infinite; */
+	width: 12px;
+	border-radius: 100px 100px 100px 100px;
+}
+/* @keyframes firehover{
+	from{
+		background:linear-gradient(rgb(255, 52, 12),transparent);
+	}
+	to{
+		background:linear-gradient(rgb(193, 18, 18),transparent);
+	}
+} */
+
+/* 火焰元素 */
+.container .rocket .fire{
+	width: 10px;
+	height: 160px;
+	/* background:linear-gradient(rgb(40,158,194),transparent); */
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top:72px;
+	/* border-radius: 0px 0px 100px 100px; */
+}
+.c{
+	background:linear-gradient(rgb(40,158,194),transparent);
+	border-radius: 0px 0px 100px 100px;
+	width: 10px;
+}
+.d{
+	background:linear-gradient(rgb(247, 107, 7),transparent);
+	border-radius: 100px 100px 100px 100px;
+	width: 12px;
+}
+
+.container #qiyan{
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-36%);
+	z-index: 10;
+	display: none;
+}
+
+.container #qiyan img{
+	
+}
+/* 火焰元素 */
+/* .container .rocket::after{
+	content: "";
+	width: 10px;
+	height: 160px;
+	background:linear-gradient(rgb(40,158,194),transparent);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top:72px;
+	border-radius: 0px 0px 100px 100px;
+} */
+/* 白线条 */
+.container i{
+	top: -500px;
+	width: 1px;
+	height: 20px;
+	position: absolute;
+	left: 20px;
+	background-color: #FFF;
+	animation: line 1.95s linear infinite;
+}
+@keyframes line{
+	from{
+		transform: translateY(0vh);
+	}
+	to{
+		transform: translateY(120vh);
+	}
+}
+/* 星球 */
+.container q{
+	top: -400px;
+	position: absolute;
+	left: 20px;
+	animation: linexq 15s linear infinite;
+	z-index: 5;
+}
+@keyframes linexq{
+	from{
+		transform: translateY(0vh);
+	}
+	to{
+		transform: translateY(170vh);
+	}
+}
+
+/* 昼夜 */
+.container .day{
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	cursor: pointer;
+	z-index: 6;
+}
+.container .day:hover{
+	right:42px;
+	top: 42px;
+}
+.container .day:hover img{
+	height: 81px;
+}
+
+/* 侧拉 */
+.container #box{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 950px;
+	height: 800px;
+	z-index: 10;
+}
+.container #menu{
+	position: absolute;
+/* 	top: 50%;
+	transform: translateY(-50%); */
+	z-index: 10;
+	display: flex;
+	/* align-items: center; */
+	width: 100%;
+	height: 100%;
+}
+
+.container #menu #leftmenu{
+	/* position: relative; */
+	width: 890px;
+	height: 100%;
+	background-color: rgba(200, 200, 200, .8);
+	/* display: none; */
+	z-index: 10;
+	border-radius: 0px 20px 20px 0px;
+}
+
+.e{
+	display: none;
+}
+.f{
+	/* display: block; */
+	animation: leftright 1s linear 1;
+}
+.g{
+	/* display: block; */
+	animation: rightleft 1s linear 1;
+}
+@keyframes leftright{
+	0%{
+		/* top: 8.7%; */
+		transform: translateX(-890px);
+	}
+	30%{
+		/* top: 8.7%; */
+		transform: translateX(-800px);
+	}
+	50%{
+		/* top: 8.7%; */
+		transform: translateX(-800px);
+	}
+	60%{
+		/* top: 8.7%; */
+		transform: translateX(-800px);
+	}
+	70%{
+		/* top: 8.7%; */
+		transform: translateX(0px);
+	}
+	85%{
+		/* top: 8.7%; */
+		transform: translateX(-80px);
+	}
+	100%{
+		/* top: 8.7%; */
+		transform: translateX(0px);
+	}
+}
+@keyframes rightleft{
+	0%{
+		/* top: 8.7%; */
+		transform: translateX(0px);
+	}
+	70%{
+		/* top: 8.7%; */
+		transform: translateX(-800px);
+	}
+	90%{
+		/* top: 8.7%; */
+		transform: translateX(-800px);
+	}
+	100%{
+		/* top: 8.7%; */
+		transform: translateX(-890px);
+	}
+}
+.container #menu ul li{
+	width: 100%;
+	height: 130px;
+}
+.container #menu #spaceman{
+	margin-top: 350px;
+	margin-left: -15px;
+	/* position: absolute; */
+	top: 50%;
+	cursor: pointer;
+	transform: translateY(-50%);
+	/* left: -15px; */
+	transform: rotate(50deg);
+}
+.container #menu img:hover{
+	/* left: 0px; */
+	transform: rotate(0deg);
+	margin-left: 0px;
+}
+
+
+/* 滚动条隐藏 */
+.demo::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.demo {
+  scrollbar-width: none; /* firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+ul{
+	position: relative;
+	overflow: auto;
+}
+ul::-webkit-scrollbar {
+	display: none;
+}
+/*ul li{*/
+/*	margin: 10px;*/
+/*	margin-left: 80px;*/
+/*	margin-top: 25px;*/
+/*	background-color: slategrey;*/
+/*	opacity: .8;*/
+/*	width:80% !important;*/
+/*	border-radius: 10px;*/
+/*}*/
+
+/*li:hover{*/
+/*	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);*/
+/*}*/

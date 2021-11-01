@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>版本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <script src="../js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//music.clwl.online/Player/player.min.js" id="SinKingMusic" key="874"></script>
+</head>
+<body id="body">
+<div class="all"></div>
+<div class="container" id="container2">
+    <div class="rocket" title="点击移开鼠标即可发射!">
+        <img id="rocketimg" src="../img/44114201.png" height="80px">
+        <img id="rocketimg2" src="../img/16102342.png" height="80px" style="display: none;position: absolute; bottom: 10px;">
+        <div class="fire"></div>
+    </div>
+    <div id="qiyan">
+        <img src="../img/0.png" height="150px" >
+    </div>
+
+    <div id="box">
+        <div id="menu">
+            <ul id="leftmenu">
+                <li class="gd gd1">待开拓区，敬请期待</li>
+                <li class="gd gd2"></li>
+                <li class="gd gd3"></li>
+                <li class="gd gd4"></li>
+                <li class="gd gd5"></li>
+                <li class="gd gd6"></li>
+                <li class="gd gd7"></li>
+            </ul>
+            <img id="spaceman" src="../img/22.png" height="80px" >
+        </div>
+    </div>
+
+
+    <i></i>
+    <q id="q"><img src="../img/xq1.png" height="350px" ></q>
+    <div class="day" id="n" title="切换/昼夜">
+        <img src="../img/moon.png" height="60px">
+    </div>
+    <!-- <h1 id="my">点我</a></h1> -->
+</div>
+<script type="text/javascript">
+    //随机数
+    function rand(m,n){
+        return Math.ceil(Math.random()*(n-m+1))+m-1;
+    }
+    //光线总数
+    let sum=45;
+    for(let i=0;i<sum;i++){
+        //创建i元素
+        const i=document.createElement('i');
+        //设置样式
+        i.style.top=-150+'px';
+        i.style.height=rand(30,100)+'px';
+        i.style.left=rand(1,99)+'vw';
+        //随机动画周期
+        i.style.animationDelay=rand(5,30)/10+'s';
+        //将i插入到container中
+        document.querySelector('.container').appendChild(i);
+    }
+    let j=2;
+    document.getElementById("q").style.left=rand(1,80)+'vw';
+    setInterval(function(){
+        //var img = document.createElement('img');//创建一个标签
+        //img.style.left=rand(1,85)+'vw';
+        //img.setAttribute('src',"img/xq"+j+".png");//给标签定义src链接
+        //document.querySelector('.container').appendChild(img);//放到指定的id里
+        document.getElementById("q").innerHTML="";
+        document.getElementById("q").innerHTML="<img src='../img/xq"+j+".png'  height='350px' >";
+        document.getElementById("q").style.left=rand(1,80)+'vw';
+        j++;
+        if(j>6){
+            j=1;
+        }
+    },"15000");
+    // 昼夜
+    var d=document.getElementById("n");
+    let temp=0;
+    d.onclick=function(){
+        if(temp==0){
+            d.innerHTML="<img src='../img/sun.png' height='60px'>";
+            document.getElementById("q").style.opacity='0';
+            document.getElementById("container2").style.backgroundColor='white';
+            document.getElementById("rocketimg").style.opacity='0';
+            document.getElementById("rocketimg2").style.display='block';
+            document.getElementById("leftmenu").style.backgroundColor='rgba(61, 61, 61, 0.8)';
+            for(let i=0;i<sum;i++){
+                document.getElementsByTagName("i")[i].style.backgroundColor='black';
+            }
+            temp=1;
+        }
+        else{
+            d.innerHTML="<img src='../img/moon.png' height='60px'>";
+            document.getElementById("q").style.opacity='1';
+            document.getElementById("rocketimg2").style.display='none';
+            document.getElementById("rocketimg").style.opacity='1';
+            document.getElementById("container2").style.backgroundColor='rgb(18, 20, 35)';
+            document.getElementById("leftmenu").style.backgroundColor='rgba(200, 200, 200, .8)';
+            for(let j=0;j<sum;j++){
+                document.getElementsByTagName("i")[j].style.backgroundColor='white';
+            }
+            temp=0;
+        }
+    }
+    // 发射
+    $(document).ready(function(){
+
+        $(".rocket").addClass("b");
+        $(".fire").addClass("c");
+        $(".rocket").click(function(){
+            $(".rocket").removeClass("b");
+            $(".rocket").addClass("a");
+            $(".fire").removeClass("c");
+            $(".fire").addClass("d");
+
+            setTimeout(function(){
+                $("#qiyan").fadeToggle();
+            },1100)
+
+            setTimeout(function(){
+                $("#qiyan").fadeToggle();
+            },1900)
+
+            setTimeout(function(){
+
+                $(".rocket").removeClass("a");
+                $(".rocket").addClass("b");
+                $(".fire").removeClass("d");
+                $(".fire").addClass("c");
+            },2900);
+        });
+
+        // 侧拉
+        let n=1;
+        $("#leftmenu").addClass("e");
+        $("#spaceman").click(function(){
+            if(n==1){
+                $("#menu").addClass("f");
+                $("#leftmenu").removeClass("e");
+                setTimeout(function(){
+                    $("#menu").removeClass("f");
+                },1000);
+                n=0;
+            }else{
+                $("#menu").addClass("g");
+                setTimeout(function(){
+                    $("#leftmenu").addClass("e");
+                    $("#menu").removeClass("g");
+                },1000);
+                n=1;
+            }
+
+        });
+
+        $("#my").click(function(){
+            $(".all").addClass("alll");
+            setTimeout(function(){
+                window.location.href="loading.html";
+            },1100)
+        })
+    });
+</script>
+</body>
+</html>
